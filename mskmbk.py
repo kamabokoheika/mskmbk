@@ -1,6 +1,8 @@
 """
 Joe Stroutさんが作ったMiniscriptをPythonへ移植したやつ
 
+一番下に直接実行して使えるようにできる場所置いてあるよ
+
 このコードは、Joe Strout 氏によって開発された公式の MiniScript 実装
 (C# / C++版) をベースに、Python に移植したものです。
 
@@ -2751,9 +2753,8 @@ async def ams(user_code: str, context: dict = None, timeout: float | None = None
 # テスト（このファイルが直接実行された時のみ）
 # ============================================================================
 
-if __name__ == "__main__":
-    async def _async_test():
-        script = """
+# ams用のテストのコード
+async_test_script = """
 s = "hello"
 print s.indexes
 
@@ -2763,23 +2764,30 @@ print lst.indexes
 m = {"a":1, "b":2}
 print m.indexes
 """
+# ms用のテストのコード
+sync_test_script = """
+s = "hello"
+print s.indexes
+
+lst = [10,20,30]
+print lst.indexes
+
+m = {"a":1, "b":2}
+print m.indexes
+"""
+
+
+if __name__ == "__main__":
+    async def _async_test():
+        global async_test_script
         print("--- async test ---")
-        out = await ams(script, timeout=5.0)
+        out = await ams(async_test_script, timeout=5.0)
         print(out)
 
     def _sync_test():
-        script = """
-s = "hello"
-print s.indexes
-
-lst = [10,20,30]
-print lst.indexes
-
-m = {"a":1, "b":2}
-print m.indexes
-"""
+        global sync_test_script
         print("--- sync test ---")
-        out = ms(script)
+        out = ms(sync_test_script)
         print(out)
 
     try:
