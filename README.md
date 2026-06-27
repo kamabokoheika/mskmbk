@@ -48,8 +48,8 @@ except mskmbk.TimeoutMsException as e:
 
 注意事項
 ```
-amsでinput関数を使うと処理が止まっちゃうので使わないでね
-非同期(ms()のやつ)で実行してるときにwaitとかyield使うと処理が止まるから気をつけてね
+非同期(ams()のやつ)でinput関数を使うと処理が止まっちゃうので使わないでね
+同期(ms()のやつ)で実行してるときにwaitとかyield使うと処理が止まるから気をつけてね
 ```
 
 FAQ
