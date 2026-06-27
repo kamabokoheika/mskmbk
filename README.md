@@ -65,6 +65,9 @@ A3. アイデアは自分
 
 Q4. どれくらい本家Miniscriptと似てるの?
 A4. https://miniscript.org/files/MiniScript-Manual.pdf ここに書いてあるとおりの仕様を大体やってるはず、間違ってたらissuesへgo
+
+Q5. すぐ試したい！！！
+A5. すぐ試したい人はコードの一番下に「async_test_script」と「sync_test_script」って変数があるからそこいじってからmskmbk.pyを直接実行すると使えるよ
 ```
 
 ライセンス
